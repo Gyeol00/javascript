@@ -15,12 +15,13 @@
 
     <h4>Array</h4>
     <script>
+        // 배열 객체 생성
         const arr1 = [1, 2, 3, 4, 5];
         const arr2 = new Array(6, 7, 8, 9, 10);
 
         document.write('arr1 : ' + arr1 + '<br>');
         document.write('arr2 : ' + arr2 + '<br>');
-
+        
         // 배열 원소 추가
         arr1.push(6);
         arr1.push(7);
@@ -36,20 +37,20 @@
         const result = arr1.join('-');
         document.write('result : ' + result + '<br>');
 
-        // 배열 반복문 (내부) (ch03 배열 반복문은 외부)
+        // 배열 반복문(내부) (ch03 배열 반복문은 외부)
         arr1.forEach(function(item, index){
-            document.write('arr1 index : ' + index + ', item : ' + item + '<br>');
+            document.write('index : ' + index + ', item : ' + item + '<br>');
         });
 
-        arr2.forEach((item, index) => {
-            document.write('arr2 index : ' + index + ', item : ' + item + '<br>');
+        arr2.forEach((item, index)=>{
+            document.write('index : ' + index + ', item : ' + item + '<br>');
         });
-
 
         // 배열 원소 일괄 처리
-        const arr4 = arr1.map((item) => {
+        const arr4 = arr1.map((item)=>{
                                     return item + 10;
                                 });
+
         document.write('arr4 : ' + arr4 + '<br>');
 
         const arr5 = arr1.map(item => item * item);
@@ -58,8 +59,8 @@
         const arr6 = arr1.filter(item => item % 2 == 0);
         document.write('arr6 : ' + arr6 + '<br>');
 
-        const arr7 = arr1.sort((a,b) => a - b); // 오름차순
-        const arr8 = arr2.sort((a,b) => b - a); // 내림차순
+        const arr7 = arr1.sort((a, b)=> a - b); // 오름차순
+        const arr8 = arr2.sort((a, b)=> b - a); // 내림차순
         document.write('arr7 : ' + arr7 + '<br>');
         document.write('arr8 : ' + arr8 + '<br>');
 
@@ -67,6 +68,7 @@
                         .map(item => item * 2)
                         .filter(item => item > 10)
                         .sort((a, b) => a - b);
+
         document.write('arr9 : ' + arr9 + '<br>');
 
 
@@ -80,7 +82,6 @@
         const [leader, ...others] = ['김유신', '김춘추', '장보고', '강감찬', '이순신'];
         document.write('leader : ' + leader + '<br>');
         document.write('others : ' + others + '<br>');
-
     </script>
 
     <h4>String</h4>
@@ -109,9 +110,7 @@
         document.write('r7 : ' + r7 + '<br>');
         document.write('r8 : ' + r8 + '<br>');
         document.write('r9 : ' + r9 + '<br>');
-
     </script>
-
 
     <h4>RegExp</h4>
     <script>
@@ -145,7 +144,6 @@
 
         // 정규표현식 메타문자
         /*
-            / : 정규표현식 시작과 끝
             ^ : 정규표현식 문자열 시작
             $ : 정규표현식 문자열 끝
             { : 정규표현식 문자열 반복 시작
@@ -191,19 +189,19 @@
         document.write('regEmail : ' + regEmail.test('hong1234@korea.com') + '<br>');
         document.write('regPass : ' + regPass.test('Pass1234!@#') + '<br>');
         document.write('regHp : ' + regHp.test('010-123-1001') + '<br>');
-    </script>
 
+    </script>
 
     <h4>Math</h4>
     <script>
         let rs1 = Math.abs(-5);
         let rs2 = Math.sqrt(9);
         let rs3 = Math.ceil(1.2);
-        let rs3 = Math.ceil(1.8);
-        let rs4 = Math.floor(1.2);
-        let rs5 = Math.floor(1.8);
-        let rs6 = Math.round(1.2);
-        let rs7 = Math.round(1.8);
+        let rs4 = Math.ceil(1.8);
+        let rs5 = Math.floor(1.2);
+        let rs6 = Math.floor(1.8);
+        let rs7 = Math.round(1.2);
+        let rs8 = Math.round(1.8);
 
         document.write('rs1 : ' + rs1 + '<br>');
         document.write('rs2 : ' + rs2 + '<br>');
@@ -225,8 +223,6 @@
 
         let n4 = Math.ceil(Math.random() * 10);
         document.write('n4 : ' + n4 + '<br>');
-        
-
     </script>
 
     <h4>Date</h4>
@@ -235,25 +231,17 @@
         document.write(date + '<br>');
 
         let yy = date.getFullYear();
-        let mm = date.getMonth();
+        let mm = date.getMonth() + 1;
         let dd = date.getDate();
         let hour = date.getHours();
-        let min = date.getMinutes();
-        let sec = date.getSeconds();
+        let min  = date.getMinutes();
+        let sec  = date.getSeconds();
 
         // 템플릿 문자열
         document.write(`${yy}년 ${mm}월 ${dd}일 ${hour}:${min}:${sec}`);
 
 
-
     </script>
-
-
-
-
-
-
-
 
 
 </body>

@@ -17,13 +17,13 @@
             border: 1px solid black;
         }
 
-        .red {background-color: red;}
+        .red   {background-color: red;}
         .green {background-color: green;}
-        .blue {background-color: blue;}
+        .blue  {background-color: blue;}
     </style>
 </head>
 <body>
-    <h3>3. 문서객체모델</h3>
+    <h3>3.문서객체모델</h3>
 
     <h4>문서객체 선택</h4>
     <ul>
@@ -38,7 +38,7 @@
             </ol>
         </li>
         <li>대전</li>
-        <li id="deagu">대구</li>
+        <li id="daegu">대구</li>
         <li>
             <span>부산</span>
             <ol>
@@ -65,24 +65,22 @@
         busan.style.color = 'orange';
 
         const busanAll = document.querySelectorAll('.busan');
-        busanAll[0].style.color = 'gray';
-        busanAll[1].style.color = 'gray';
-        busanAll[2].style.color = 'gray';
+        busanAll[0].style.color = 'skyblue';
+        busanAll[1].style.color = 'skyblue';
+        busanAll[2].style.color = 'skyblue';
 
         const daegu = document.getElementById('daegu');
         daegu.style.color = 'brown';
 
         const seouls = document.getElementsByTagName('i');
-        for(const seoul of seouls) {
+        for(const seoul of seouls){
             seoul.style.background = 'yellow';
         }
 
-        const gwangju = document.getElementsByClassName('gwanju');
+        const gwangju = document.getElementsByClassName('gwangju');
         gwangju[0].style.color = 'lime';
-
-
-
     </script>
+
 
     <h4>문서객체 조작</h4>
     <img>
@@ -108,23 +106,42 @@
     <div class="box">box3</div>
 
     <script>
-        //문서객체 조작
-        const imgs = document.querySelectorAll('img');
+        // 문서객체 조작
+
+        // 속성 조작
+        const images = document.querySelectorAll('img');
         images[0].src = './images/flower1.jpg';
-        images[0].alt = '벚꽃';
+        images[0].alt = '벗꽃';
 
         images[1].src = './images/flower2.jpg';
         images[1].alt = '코스모스';
 
         // 스타일 조작
         const box1 = document.querySelector('.box1');
-        box1.style.display = inline-block;
-        box1.style.width = '100px'
+        box1.style.display = 'inline-block';
+        box1.style.width = '100px';
         box1.style.height = '100px';
+        box1.style.border = '1px solid black';
+        box1.style.background = 'orange';
+
+        const box2 = document.querySelector('.box2');
+        box2.style.display = 'inline-block';
+        box2.style.width = '100px';
+        box2.style.height = '100px';
+        box2.style.border = '1px solid black';
+        box2.style.background = 'orange';
 
         // 태그 내용 조작
+        const city = document.getElementById('city');
+        let text = city.innerText;
+        let html = city.innerHTML;
+
+        console.log('text : ' + text);
+        console.log('html : ' + html);
+
         const contents = document.getElementsByClassName('content');
         contents[0].innerText = '<em>TEXT 내용입니다.</em>';
+        contents[1].innerHTML = '<em>HTML 내용입니다.</em>';
 
         // 클래스 속성 조작
         const boxs = document.getElementsByClassName('box');
@@ -133,7 +150,7 @@
         boxs[2].classList.toggle('blue');
     </script>
 
-
+    
     <h4>문서객체 추가/이동</h4>
     <ul class="korea">
         <li>
@@ -172,7 +189,7 @@
         const gangwon = document.querySelector('.korea > li:nth-child(3) > ol');
         const gyungsa = document.querySelector('.korea > li:nth-child(4) > ol');
         const jeonlla = document.querySelector('.korea > li:nth-child(5) > ol');
-    
+
         // 동적 추가 처리
         gyeongg.insertAdjacentHTML('beforeend', '<li>평택</li>');
         gyeongg.insertAdjacentHTML('beforeend', '<li>용인</li>');
@@ -180,9 +197,9 @@
         gyeongg.insertAdjacentHTML('afterbegin', '<li>안양</li>');
 
         chungch.insertAdjacentHTML('beforeend', '<li>단양</li>');
-        gyungsa.insertAdjacentHTML('beforeend', '<li>춘천</li>');
+        gangwon.insertAdjacentHTML('beforeend', '<li>춘천</li>');
         jeonlla.insertAdjacentHTML('beforeend', '<li>담양</li>');
-    
+
         const lis = gyungsa.getElementsByTagName('li');
         const suwon = lis[1];
         const mokpo = lis[2];
@@ -195,29 +212,28 @@
 
         jeonlla.append(mokpo);
         chungch.prepend(buyeo);
-
-        jeonlla.append(mokpo);
-        chungch.append(buyeo);
         gangwon.append(wonju);
-    
     </script>
-
-
+    
     <h4>문서객체 생성/삭제</h4>
     <section>
-        <h3>삭제 예정 태그입니다.</h3>
+        <h5>삭제 예정 태그입니다.</h5>
     </section>
-    
+
     <script>
         // 문서객체 생성/삭제
         const section = document.getElementsByTagName('section')[0];
 
+        const imgTag = document.createElement('img');
+        imgTag.src = './images/flower2.jpg';
+        imgTag.alt = '코스모스';
+        section.append(imgTag);
+
+        const h5 = document.getElementsByTagName('h5')[0];
+        h5.remove();
 
 
     </script>
-
-
-
 
 </body>
 </html>

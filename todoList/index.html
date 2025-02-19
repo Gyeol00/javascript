@@ -31,6 +31,7 @@
 
                     // 삭제
                     listBtn.onclick = function(e) {
+                        e.stopPropagation();  // 삭제 버튼 클릭 시 클릭 이벤트 전파를 막음
                         let pNode = e.target.parentNode;
                         todoList.removeChild(pNode);
                         saveTodos();  // 삭제 후 로컬 스토리지에 업데이트
@@ -72,6 +73,7 @@
                     listBtn.className = 'btn-close ms-auto';
 
                     listBtn.onclick = function(e) {
+                        e.stopPropagation();  // 삭제 버튼 클릭 시 클릭 이벤트 전파를 막음
                         let pNode = e.target.parentNode;
                         todoList.removeChild(pNode);
                         saveTodos();  // 삭제 후 로컬 스토리지에 업데이트
@@ -91,7 +93,7 @@
                 });
             }
             });
-    </script>
+            </script>
 </head>
 <body>
     <div class="container">
